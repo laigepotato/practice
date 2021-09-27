@@ -24,7 +24,7 @@ public class Util {
             System.out.println(o);
         }
         System.out.println("5. Method: contains(Object o): " + collection.contains(o));
-        System.out.println("6. Object[] toArray(): " + (collection.toArray())[0]);
+        System.out.println("6. Object[] toArray(),array[0] is : " + (collection.toArray())[0]);
 
 
     }
