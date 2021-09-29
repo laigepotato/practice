@@ -1,7 +1,10 @@
 package basic.collection;
 
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @program: practice
@@ -24,22 +27,69 @@ public class SetPractice {
 */
 
 
-    void testHashSet(){
 
+    void testHashSet(){
 /*
     哈希表边存放的是哈希值。HashSet存储元素的顺序并不是按照存入时的顺序（和List显然不同） 是按照哈希值来存的所以取数据也是按照哈希值取得。
     HashSet会通过元素的hashcode（）和equals方法进行判断元素师否重复， 都相等时才判断为重复元素
     */
-        Set<String> hashSet = new HashSet<String>();
-        hashSet.add("apple");
-        hashSet.add("banana");
+        // 1. 常用操作
+        Set<String> set1 = new HashSet<String>();
+        set1.add("apple");
+        set1.add("banana");
 
-        hashSet.addAll(Sets.newHashSet());
+        //java 8 ,使用Stream创建集合
+        Set<String> set2 = Stream.of("orange","apple","watermelon").collect(Collectors.toSet());
+        set1.addAll(set2);
 
+        Util.normalCollectionMethod(set1);
+
+        // 2. 重写hashCode和equals实验
+        Set<Fruit> fruits = Stream.of(
+                new Fruit("apple"),
+                new Fruit("banana"),
+                new Fruit("orange"),
+                new Fruit("watermelon"),
+                new Fruit("apple")).collect(Collectors.toSet());
+
+        Util.normalCollectionMethod(fruits);
 
     }
+
+    void testTreeSet(){
+
+    }
+
+
 
     public static void main(String[] args) {
+        SetPractice setPractice = new SetPractice();
+        setPractice.testHashSet();
+
+
 
     }
+
+    static class Fruit{
+        String name;
+
+        Fruit(String name){
+            this.name = name;
+        }
+
+        public boolean equals(Object obj){
+            return false;
+        }
+
+        public int hashCode(){
+            return (int)(new Date().getTime());
+        }
+
+        public String toString(){
+            return name;
+        }
+    }
+
+
 }
+

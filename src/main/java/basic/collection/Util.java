@@ -12,7 +12,7 @@ import java.util.Iterator;
 
 public class Util {
 
-    public void normalCollectionMethod(Collection collection){
+    public static void normalCollectionMethod(Collection collection){
         System.out.println("1. Collect type is: " + collection.getClass().getName());
         System.out.println("2. Method: int size(): " + collection.size());
         System.out.println("3. Method: boolean isEmpty(): " + collection.isEmpty());
