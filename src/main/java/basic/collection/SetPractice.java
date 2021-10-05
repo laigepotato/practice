@@ -1,8 +1,6 @@
 package basic.collection;
 
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -56,7 +54,63 @@ public class SetPractice {
 
     }
 
+    void testLinkHashSet(){
+
+/*
+LinkedHashSet 底层使用 LinkedHashMap 来保存所有元素，
+它继承与 HashSet，其所有的方法操作上又与 HashSet 相同，
+
+ 如果我们需要迭代的顺序为插入顺序或者访问顺序，那么 LinkedHashSet 是需要你首先考虑的
+
+*/
+
+
+/*
+        这种初始化的方法，利用的有两个Java知识点，一个是匿名内部类，一个是实例初始化块。
+*/
+
+        Set<String> linkedHashSet = new LinkedHashSet<String>(){
+            {
+                add("apple");
+                add("banana");
+                add("orange");
+                add("apple");
+                add("watermelon");
+            }
+        };
+
+        Util.normalCollectionMethod(linkedHashSet);
+
+
+
+    }
+
+
+
     void testTreeSet(){
+/*
+TreeSet是基于TreeMap实现的。
+TreeSet中的元素支持2种排序方式：自然排序 或者 根据创建TreeSet 时提供的 Comparator 进行排序。
+TreeSet为基本操作（add、remove 和 contains）提供受保证的 log(n) 时间开销。(TreeMap原理是红黑树)
+非线程安全
+*/
+
+        Set<Fruit> treeSet = new TreeSet<Fruit>(new Comparator<Fruit>(){
+            @Override
+            public int compare(Fruit o1, Fruit o2) {
+                return o1.name.compareTo(o2.name);
+            }
+        }){{
+            {
+                add(new Fruit("watermelon"));
+                add(new Fruit("banana"));
+                add(new Fruit("apple"));
+                add(new Fruit("orange"));
+                add(new Fruit("apple"));
+            }
+        }};
+
+        Util.normalCollectionMethod(treeSet);
 
     }
 
@@ -64,9 +118,9 @@ public class SetPractice {
 
     public static void main(String[] args) {
         SetPractice setPractice = new SetPractice();
-        setPractice.testHashSet();
-
-
+        //setPractice.testHashSet();
+        //setPractice.testLinkHashSet();
+        setPractice.testTreeSet();
 
     }
 
@@ -88,6 +142,7 @@ public class SetPractice {
         public String toString(){
             return name;
         }
+
     }
 
 
