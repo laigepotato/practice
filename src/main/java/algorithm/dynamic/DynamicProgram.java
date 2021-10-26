@@ -1,5 +1,7 @@
 package algorithm.dynamic;
 
+import java.util.Arrays;
+
 /**
  * @program: practice
  * @description:
@@ -45,6 +47,7 @@ public class DynamicProgram {
         }
 
         char[] chars = s.toCharArray();
+
 
         for(int L = 2; L <= length; L++){
             for(int i = 0; i < length ; i++){

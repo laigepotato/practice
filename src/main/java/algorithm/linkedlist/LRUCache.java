@@ -30,9 +30,7 @@ public class LRUCache {
         LinkedNode next;
 
         public LinkedNode() {
-        }
-
-        ;
+        };
 
         public LinkedNode(int key, int value) {
             this.key = key;

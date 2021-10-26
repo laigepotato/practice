@@ -20,8 +20,8 @@ public class AsyncTaskExecutor {
     private static Logger logger = LoggerFactory.getLogger(AsyncTaskExecutor.class);
 
     @Async
-    public void executor(AsyncTaskConstructor asyncTaskConstructor, TaskInfo taskInfo){
-        logger.info("AsyncTaskExecutor is executing task : {}",taskInfo);
+    public void executor(AsyncTaskConstructor asyncTaskConstructor, String taskId){
+        logger.info("AsyncTaskExecutor is executing task : {}",taskId);
         asyncTaskConstructor.async();
     }
 }

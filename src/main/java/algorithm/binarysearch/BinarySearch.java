@@ -10,7 +10,7 @@ package algorithm.binarysearch;
 public class BinarySearch {
 
 
-  /*  给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则返回 -1。
+  /*  给定一个 n 个元素有序的（升序）整型数组 nums 和一个目标值 target  ，写一个函数搜索 nums 中的 target，如果目标值存在返回下标，否则返回 -1。
 */
     public int binarySearch(int[] nums, int target) {
         int left=0,right=nums.length-1;
@@ -63,7 +63,7 @@ public class BinarySearch {
 
 /*    题目： 给你一个非负整数 x ，计算并返回 x 的 算术平方根 。
 
-    由于返回类型是整数，结果只保留 整数部分 ，小数部分将被 舍去 。*/
+    由于返回类型是整数，结果只保留 整数部分 ，小数部分将被舍去 。*/
 
     public int mySqrt(int x) {
         if(x<2) return x;

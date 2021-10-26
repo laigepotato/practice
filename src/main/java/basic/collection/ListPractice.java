@@ -2,6 +2,7 @@ package basic.collection;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -45,6 +46,13 @@ public class ListPractice {
 
         Util.normalCollectionMethod(list1);
 
+        String[] array = {"2","3","1"};
+        // 数组转list
+        // 返回一个由指定数组生成的固定大小的 List。不能add和remove，会报错！！！
+        List<String> list2 = Arrays.asList(array);
+
+
+
     }
 
     void testLinkedList(){
@@ -52,7 +60,7 @@ public class ListPractice {
 /*
         链表（Linked list）是一种常见的基础数据结构，是一种线性表，但是并不会按线性的顺序存储数据，而是在每一个节点里存到下一个节点的地址。
         与 ArrayList 相比，LinkedList 的增加和删除的操作效率更高，而查找和修改的操作效率较低。
-        LinkedList 实现了 Queue 接口，可作为队列使用。
+        LinkedList 实现了 Deque 接口，可作为队列使用,也可作为栈使用
 
         */
 
@@ -76,8 +84,14 @@ public class ListPractice {
         list1.push("8");
         System.out.println("Get Stack pop : " + list1.pop());
 
+        // 作为队列使用 进队列 offer 出队列 poll 获取队列头但不出 peek
+        list1.offer("9");
+        String a = list1.peek();
+        String b = list1.poll();
 
-
+        // 作为栈使用 进栈 push 出栈 pop
+        list1.push("10");
+        String c = list1.pop();
     }
 
 

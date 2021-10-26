@@ -1,5 +1,6 @@
 package basic.stream;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -17,12 +18,22 @@ import java.util.stream.Stream;
 
 public class StreamPractice {
 
+/*
+
+    | stream of elements +-----> |filter+-> |sorted+-> |map+-> |collect|
+
+
+*/
+
     void testStreamInitCollection(){
         // 1. Stream初始化collection
         Set<String> set = Stream.of("a","b").collect(Collectors.toSet());
         System.out.println(set.getClass().getName());
         List<String> list = Stream.of("a","b").collect(Collectors.toList());
         System.out.println(list.getClass().getName());
+        List<Character> characters =  Stream.of('a','b','c','d').collect(Collectors.toList());
+
+
         Map<String,String> map = Stream.of(
                 new String[][]{ {"key1","value1"},{"key2","value2"}}
                 ).collect(Collectors.toMap(data -> data[0], data -> data[1]));

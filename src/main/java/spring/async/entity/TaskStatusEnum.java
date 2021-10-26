@@ -4,7 +4,8 @@ public enum TaskStatusEnum {
 
     STARTED (0,"任务启动") ,
     RUNNING (1,"任务运行中") ,
-    DONE (2,"任务完成") ;
+    DONE (2,"任务完成") ,
+    FAILED (3,"失败") ;
 
     private int state;
     private String stateInfo;
@@ -14,11 +15,11 @@ public enum TaskStatusEnum {
         this.stateInfo = stateInfo;
     }
 
-    int getState(){
+    public int getState(){
         return state;
     }
 
-    String getStateInfo(){
+    public String getStateInfo(){
         return stateInfo;
     }
 
